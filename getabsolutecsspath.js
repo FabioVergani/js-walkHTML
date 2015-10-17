@@ -11,18 +11,18 @@ function process(i,j,p,x){//i,childnum,cssPath, elementNode)
 };
 //============================================================================
 function walkHTML(from,handle){
-	var e=from, f=handle, k=false, i=0, j=0, x, m=[], rel='';
+	var e=from, f=handle, k=false, i=0, j=0, x, m=[],r='';
 	do{
 		//f(i,j,e);
+
 		m.length=i;
-		m[i]=rel+e.tagName;
+		m[i]=r+e.tagName+(j===0?'':':nth-child('+j+')');
 
 		log(j,m.join('\u0020'));
 
 		x=e.firstElementChild;
 		if(k===false && x!==null){
-			j=0;
-			i++;rel='>';
+			j=0;i++;r='>';
 		}else{
 			k=false;
 			x=e.nextElementSibling;
@@ -31,7 +31,7 @@ function walkHTML(from,handle){
 		j++;
 		e=x;
 	}while(i>0);
-}
+}/*end: walkHTML*/
 
 
 
