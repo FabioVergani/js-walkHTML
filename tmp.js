@@ -11,18 +11,18 @@ function process(i,j,p,x){//i,childnum,cssPath, elementNode)
 };
 //============================================================================
 function walkHTML(from,handle){
-	var e=from, f=handle, k=false, i=0, j=0, x, m=[];
+	var e=from, f=handle, k=false, i=0, j=0, x, m=[], rel='';
 	do{
 		//f(i,j,e);
 		m.length=i;
-		m[i]=e.tagName;
+		m[i]=rel+e.tagName;
 
 		log(j,m.join('\u0020'));
 
 		x=e.firstElementChild;
 		if(k===false && x!==null){
 			j=0;
-			i++;
+			i++;rel='>';
 		}else{
 			k=false;
 			x=e.nextElementSibling;
