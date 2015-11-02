@@ -1,25 +1,25 @@
-var o=console, log=o.log.bind(o);//dir=o.dir.bind(o);
-//
-function process(i,j,x){//i,childnum,elementNode)
- //var indent=Array(i);indent.concat(['%O'])
- log(Array(i).join('\t'),j,x);
+var log=(function(o){return o.log.bind(o);})(console);
+//=================================================================================
+//# i:depth, j:childnum, e:elementNode
+function process(i,j,e){
+ log(Array(i).join('\t'),i,j,e.tagName);
 };
 //=================================================================================
-function walkHTML(from,handle){
-	var e=from, f=handle, k=false, i=0, j=0, x;
+function walkHTML(from,handle){console.clear();
+	var k=false, e=from, f=handle, i=0, j=0, n;
 	do{
 		f(i,j,e);
-		x=e.firstElementChild;
-		if(k===false && x!==null){
+		n=e.firstElementChild;
+		if(k===false && n!==null){
 			j=0;
 			i++;
 		}else{
 			k=false;
-			x=e.nextElementSibling;
-			if(x===null){x=e.parentElement;k=true;j=0;i--;};
+			n=e.nextElementSibling;
+			if(n===null){n=e.parentElement;k=true;j=0;i--;};
 		};
 		j++;
-		e=x;
+		e=n;
 	}while(i>0);
 }
 //
