@@ -11,8 +11,11 @@
 		<meta name="contact" content="facebook.com/verganifabio">
 	</head>
 	<body>
-
-<button onclick="walkHTML(document.body,process);">VAI</button>
+<!--
+walkHTML(document.body,process);
+walkHTML(document.documentElement,process);
+-->
+<button onclick="walkHTML(document.documentElement,process);">VAI</button>
 <ul id="N0">
 			<li id="N1"></li>
 			<li id="N2"></li>
@@ -343,7 +346,6 @@
 			<li id="N259"></li>
 		</ul>
 <!--
-#generate id
 for(var i=0, m=document.body.getElementsByTagName('*'), l=m.length+0;i<l; i++){
   m[i].id=("N"+i);
 };
