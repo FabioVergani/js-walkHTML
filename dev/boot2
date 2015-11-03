@@ -1,0 +1,85 @@
+walk=(
+ function(global){'use strict';
+  var w=global,p='htmlWALKER';
+  return w[p]||(w[p]=function(from){
+	var e=from, d=e.ownerDocument, w=d.defaultView, df=d.createDocumentFragment(),
+	f=function(o,p){var e=o;return e[p].bind(e);},
+	console=w.console,
+	log=f(console,'log'),
+	//dir=f(console,'dir'),
+	createText=f(d,'createTextNode'),
+	createTag=f(d,'createElement'),
+	handler=function(i,j,x){//# i:depth, j:childnum, x:elementNode
+	 //var undefined,
+	 log(Array(i).join('\t'),i,j,x.tagName);
+	},
+	k=false,
+	j=0,
+	i=0,
+	n;
+
+	f=handler;
+
+	do{
+		f(i,j,e);
+		n=e.firstElementChild;
+		if(k===false && n!==null){
+			j=0;i++;
+		}else{
+			k=false;
+			n=e.nextElementSibling;
+			if(n===null){n=e.parentElement;k=true;j=0;i--;};
+		};
+		j++;
+		e=n;
+	}while(i>0);
+
+	df=null;
+
+ });
+})(window);
+//=============
+
+
+
+
+/*
+
+	//# i:depth, j:childnum, x:elementNode
+	function handler(i,j,x){
+	 var w=global, e=w.df, m=e.m, f=w.createTag, ul=m[i];
+	 if(typeof(ul)==='undefined'){ul=m[i]=e.appendChild(f('ul'));};
+	 ul.appendChild(createText(i));
+	 ul.appendChild(f('li').appendChild(createText(j+':'+x.tagName)));
+
+	 //log(Array(i).join('\t'),i,j,e.tagName);
+	};
+
+	//#walker:
+	return function(from){
+	 var k=false, e=from, f=handler, i=0, j=0, n;
+	 do{
+		f(i,j,e);
+		n=e.firstElementChild;
+		if(k===false && n!==null){j=0;i++;}else{k=false;n=e.nextElementSibling;if(n===null){n=e.parentElement;k=true;j=0;i--;};};
+		j++;
+		e=n;
+	 }while(i>0);
+	};
+
+*/
+
+
+ //
+/*
+log,dir,
+
+
+ [].forEach(function(p){
+
+ });
+
+void()
+
+
+*/
