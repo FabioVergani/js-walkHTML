@@ -1,7 +1,7 @@
 walk=(
  function(global){'use strict';
   var w=global,p='htmlWALKER';
-  return w[p]||(w[p]=function(from){
+  return w[p]||w.Object.freeze(w[p]=function(from){
 	var e=from, d=e.ownerDocument, w=d.defaultView, df=d.createDocumentFragment(),
 	f=function(o,p){var e=o;return e[p].bind(e);},
 	console=w.console,
@@ -17,9 +17,9 @@ walk=(
 	j=0,
 	i=0,
 	n;
-
+	//#
 	f=handler;
-
+	//#
 	do{
 		f(i,j,e);
 		n=e.firstElementChild;
@@ -33,9 +33,8 @@ walk=(
 		j++;
 		e=n;
 	}while(i>0);
-
+	//#
 	df=null;
-
  });
 })(window);
 //=============
