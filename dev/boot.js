@@ -1,13 +1,12 @@
 (function(global){'use strict';
- function binds(o,p){var e=o;return e[p].bind(e);}
  var undefined, w=global, d=w.document, df=d.createDocumentFragment(),
- f=binds,
- e,
- console=e=w.console, log=f(e,'log'), dir=f(e,'dir'),
+ f=function(o,p){var e=o;return e[p].bind(e);},
+ console=w.console,
+ log=f(console,'log'),
+ dir=f(console,'dir'),
  createText=f(d,'createTextNode'),
  createTag=f(d,'createElement');
-
- e=f=null;
+ f=null,console.clear();
 
 
 })(window);
