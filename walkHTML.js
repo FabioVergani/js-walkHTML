@@ -5,33 +5,31 @@ function process(t,i,j,e){
  log((("000"+t).slice(-3))+'\t',Array(i).join('\t'),i,j,e.tagName);
 };
 //=================================================================================
-function walkHTML(from,handle){console.clear();
-	var k=false, e=from, f=handle, j=0, i=0, t=0, n;
+
+
+function walkHTML(from,handle){
+	var e=from, f=handle, k=false, i=0, j=0, t=0, x;
 	do{
 		t++;
 		f(t,i,j,e);
-		n=e.firstElementChild;
-		//e.walked=true;
-		if(k===false && n!==null){//discendi
+		x=e.firstElementChild;
+		if(k===false && x!==null){
 			j=0;
-			++i;
+			i++;
 		}else{
 			k=false;
-			n=e.nextElementSibling;
-			if(n===null){//risali
-				n=e.parentElement;
-				k=true;
-				j=0;
-				i--;
-			};
+			x=e.nextElementSibling;
+			if(x===null){x=e.parentElement;k=true;j=0;i--;};
 		};
-
 		j++;
-		e=n;
+		e=x;
 	}while(i>0);
 }
-//
 
+
+
+//
+//
 /*console.log('§§§§§§§§§§§');
 				//if(n.tagName==='BODY'){f(t,i,j,e);break};
 file:///G:/SVILUPPO/WALK/1/walkHTML.htm
