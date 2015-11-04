@@ -1,25 +1,39 @@
 var log=(function(o){return o.log.bind(o);})(console);
 //=================================================================================
 //# i:depth, j:childnum, e:elementNode
-function process(i,j,e){
- log(Array(i).join('\t'),i,j,e.tagName);
+function process(t,i,j,e){
+ log((("000"+t).slice(-3))+'\t',Array(i).join('\t'),i,j,e.tagName);
 };
 //=================================================================================
 function walkHTML(from,handle){console.clear();
-	var k=false, e=from, f=handle, i=0, j=0, n;
+	var k=false, e=from, f=handle, j=0, i=0, t=0, n;
 	do{
-		f(i,j,e);
+		t++;
+		f(t,i,j,e);
 		n=e.firstElementChild;
-		if(k===false && n!==null){
+		//e.walked=true;
+		if(k===false && n!==null){//discendi
 			j=0;
-			i++;
+			++i;
 		}else{
 			k=false;
 			n=e.nextElementSibling;
-			if(n===null){n=e.parentElement;k=true;j=0;i--;};
+			if(n===null){//risali
+				n=e.parentElement;
+				k=true;
+				j=0;
+				i--;
+			};
 		};
+
 		j++;
 		e=n;
 	}while(i>0);
 }
 //
+
+/*console.log('§§§§§§§§§§§');
+				//if(n.tagName==='BODY'){f(t,i,j,e);break};
+file:///G:/SVILUPPO/WALK/1/walkHTML.htm
+
+*/
