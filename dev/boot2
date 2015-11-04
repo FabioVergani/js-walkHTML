@@ -52,12 +52,15 @@ walk=(
 	}else{
 	 k=walk;
 	 e=w[f]=w.open('about:blank','Results','menubar=no,toolbar=no,left=80,top='+k.HeightOffset+',height='+k.PopHeight+',width='+k.PopWidth);
+	 n=e.document;
+	 n.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><link><style></style><script></script><title>Css Result</title><base></head><body><div id="result">-</div></body>');
+	 n.close();
+
+	 //if(	alert(333);){};
+
+
+
 	};
-
-
-
-
-
 	df=null;
  },
  p.PopHeight=(s.availHeight-(p.HeightOffset=(w.outerHeight-w.innerHeight+10))*2)+10,
@@ -65,3 +68,22 @@ walk=(
  w.Object.freeze(p));
 })(window);
 //=============
+
+
+
+
+
+/*
+e.document.onreadystatechange=function(evt){alert(666);};
+	e.document.write('zzz');
+
+
+	 e.onload=function(evt){alert(666);
+		var d=evt.target.document,
+		o=d.createElement('style');
+		o.appendChild(d.createTextNode('#header { color: #555 }'));
+		o.type='text/css';
+		d.head.appendChild(o);
+	 };
+ //data:text/html;<html>
+*/
