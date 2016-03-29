@@ -1,9 +1,10 @@
 function process(node){//counts, depth, childindex,
  var e=node, s=e.id, hasChildren=e.children.length!==0;
- console.log((new Array(e.depth)).join(' '),e.childIndex,e.tagName,s?'#'+s:'',hasChildren);
+ console.log((new Array(e.depth)).join(' '),e.childIndex,e.tagName,s?'#'+s:'',hasChildren?'descend':'');
 }
 //
 
+//#
 function walkTree(process,html){
  var j, i, f=process, e=html, n=e.ownerDocument, o=n.createTreeWalker(e,1,null,false);
  e.childIndex=0;
@@ -23,3 +24,4 @@ function walkTree(process,html){
 	f(e);
  };
 }
+
