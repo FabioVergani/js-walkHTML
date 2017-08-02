@@ -1,0 +1,2 @@
+	 let e=d.documentElement;
+	 if(e.children.length!==0){const o=d.createTreeWalker(e,1,null);do{g(e);let n=e.firstElementChild;if(n!==null){e=n}else{n=e.nextElementSibling;if(n!==null){e=n}else{o.currentNode=e;e=o.nextNode()}}}while(e!==null)}else{g(e)};
